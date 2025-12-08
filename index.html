@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Домашнє завдання</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .block { background: #ffb3b3; padding: 10px; margin: 5px 0; }
+        .inline { background: #b3ffb3; padding: 10px; }
+        .inline-block { background: #b3b3ff; padding: 10px; margin: 5px; }
+        .none { display: none; }
+
+        /* Task 2 */
+        .z-wrapper { position: relative; height: 200px; margin-top: 20px; }
+        .z { width: 150px; height: 150px; position: absolute; opacity: 0.8; }
+        .z1 { background: red; top: 0; left: 0; z-index: 1; }
+        .z2 { background: green; top: 30px; left: 30px; z-index: 3; }
+        .z3 { background: blue; top: 60px; left: 60px; z-index: 2; }
+
+        /* Task 3 */
+        .hero { position: relative; height: 300px; background: url('https://picsum.photos/1000/400') center/cover no-repeat; margin-top: 40px; }
+        .hero-text { position: absolute; top: 40%; left: 10%; color: white; font-size: 28px; font-weight: bold; }
+        .hero-btn { position: absolute; top: 60%; left: 10%; padding: 10px 20px; background: orange; border: none; cursor: pointer; }
+        .fixed-circle { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: purple; border-radius: 50%; }
+
+        /* Task 4 */
+        .overflow-box { width: 300px; height: 200px; border: 1px solid #000; margin-top: 30px; }
+        .hidden { overflow: hidden; }
+        .scroll { overflow: scroll; }
+        .auto { overflow: auto; }
+
+        /* Task 5 */
+        .float-img { float: left; margin: 10px; width: 200px; }
+        .clear { clear: both; }
+
+        /* Task 6 */
+        .flex-box { display: flex; gap: 10px; margin-top: 30px; }
+        .btn { padding: 10px 20px; background: #ddd; border: 1px solid #555; }
+
+        /* Task 7 */
+        nav ul { list-style: none; display: flex; gap: 20px; padding: 0; }
+        nav a { position: relative; text-decoration: none; color: black; font-size: 20px; }
+        nav a::after { content: ""; position: absolute; left: 0; bottom: -5px; width: 0; height: 2px; background: red; transition: 0.3s; }
+        nav a:hover::after { width: 100%; }
+        /* --- ЗАВДАННЯ 8: три макети --- */
+.wrapper { border: 2px solid #000; margin: 30px 0; }
+.aside { background:#ffcc66; }
+.main { background:#99ddff; }
+
+
+/* 1) display: table */
+.table { display: table; width: 100%; }
+.table .aside { display: table-cell; width:35%; }
+.table .main { display: table-cell; }
+
+
+/* 2) display: flex */
+.flex { display: flex; }
+.flex .aside { width: 35%; }
+.flex .main { flex: 1; }
+
+
+/* 3) display: grid */
+.grid { display: grid; grid-template-columns: 35% auto; }
+
+
+/* --- ЗАВДАННЯ 9: GRID як на зображенні --- */
+.grid-demo { margin-top: 40px; width: 600px; height: 500px; display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(4, 1fr);
+gap: 10px; }
+.box { display:flex; justify-content:center; align-items:center; font-size:24px; color:#fff; font-weight:bold; }
+.b1 { background:#ff8b6e; grid-column:1/3; grid-row:1/2; }
+.b2 { background:#e2ff5e; grid-column:3/5; grid-row:1/2; }
+.b3 { background:#8df4c4; grid-column:1/2; grid-row:2/4; }
+.b4 { background:#ea4cff; grid-column:2/5; grid-row:2/4; }
+.b5 { background:#74f6ff; grid-column:1/3; grid-row:4/5; }
+.b6 { background:#ff7878; grid-column:3/5; grid-row:4/5; }
+
+
+/* --- ЗАВДАННЯ 10: адаптив --- */
+.header { display:flex; justify-content:space-between; align-items:center; padding:20px;
+background:#333; color:#fff; }
+.burger { display:none; cursor:pointer; font-size:30px; }
+.menu { display:flex; gap:20px; }
+
+
+/* 1200px */
+@media(max-width:1200px){ img { width:80%; } }
+
+
+/* 768px */
+@media(max-width:768px){
+.menu { display:none; }
+.burger { display:block; }
+.section { flex-direction:column; }
+}
+
+
+/* 480px */
+@media(max-width:480px){ img { width:100%; } }
+
+
+.section { display:flex; gap:20px; padding:20px; }
+.section div { flex:1; padding:10px; background:#eee; }
+    </style>
+</head>
+<body>
+
+<h2>1. Display</h2>
+<div class="block">Це block — займає весь рядок</div>
+<span class="inline">Це inline — не переносить рядок</span>
+<div class="inline-block">inline-block — як inline, але блочний</div>
+<div class="none">Це none — не видно</div>
+
+<h2>2. Z-index</h2>
+<div class="z-wrapper">
+    <div class="z z1"></div>
+    <div class="z z2"></div>
+    <div class="z z3"></div>
+</div>
+
+<h2>3. Hero секція</h2>
+<div class="hero">
+    <div class="hero-text">Вітальний текст</div>
+    <button class="hero-btn">Натисни</button>
+</div>
+<div class="fixed-circle"></div>
+
+<h2>4. Overflow</h2>
+<div class="overflow-box hidden">Дуже довгий текст... Дуже довгий текст... Дуже довгий текст...</div>
+<div class="overflow-box scroll">Дуже довгий текст... Дуже довгий текст... Дуже довгий текст...</div>
+<div class="overflow-box auto">Дуже довгий текст... Дуже довгий текст... Дуже довгий текст...</div>
+
+<h2>5. Float</h2>
+<img class="float-img" src="https://picsum.photos/200" />
+<p>Текст, який обтікає картинку. Текст, який обтікає картинку. Текст, який обтікає картинку.</p>
+<div class="clear"></div>
+<p>Потік відновлено після clear.</p>
+
+<h2>6. Flex вирівнювання</h2>
+<div class="flex-box" style="justify-content: center; align-items: center;">
+    <div class="btn">Кнопка 1</div>
+    <div class="btn">Довша кнопка 2</div>
+    <div class="btn">Кн 3</div>
+</div>
+
+<h2>7. Меню</h2>
+<nav>
+    <ul>
+        <li><a href="#">Головна</a></li>
+        <li><a href="#">Про мене</a></li>
+        <li><a href="#">Контакти</a></li>
+    </ul>
+</nav>
+<h1>Завдання 8</h1>
+<h2>1) Display: table</h2>
+<div class="wrapper table">
+<div class="aside">Бічна панель</div>
+<div class="main">Основний контент</div>
+</div>
+
+
+<h2>2) Display: flex</h2>
+<div class="wrapper flex">
+<div class="aside">Бічна панель</div>
+<div class="main">Основний контент</div>
+</div>
+
+
+<h2>3) Display: grid</h2>
+<div class="wrapper grid">
+<div class="aside">Бічна панель</div>
+<div class="main">Основний контент</div>
+</div>
+
+
+<h1>Завдання 9 (Grid макет)</h1>
+<div class="grid-demo">
+<div class="box b1">1</div>
+<div class="box b2">2</div>
+<div class="box b3">3</div>
+<div class="box b4">4</div>
+<div class="box b5">5</div>
+<div class="box b6">6</div>
+</div>
+
+
+<h1>Завдання 10 — Адаптив</h1>
+<header class="header">
+<div class="logo">LOGO</div>
+<div class="menu">
+<a href="#">Головна</a>
+<a href="#">Секція</a>
+<a href="#">Контакти</a>
+</div>
+<div class="burger">☰</div>
+</header>
+
+
+<section class="section">
+<div>Контент</div>
+<div>Ще контент</div>
+</section>
+
+
+<img src="https://picsum.photos/600/300" alt="Фото" />
+
+</body>
+</html>
